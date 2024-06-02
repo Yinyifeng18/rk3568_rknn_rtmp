@@ -1,0 +1,28 @@
+注意：
+1、编译需要mpp库，需要先编译mpp
+2、运行时需要rtmp_sample_h264文件，需要把文件拷贝到同级目录下
+
+
+执行指令：
+chmod +x rknn_yolo_demo
+./rknn_yolo_demo yolov5 fp ./model/yolov5s_relu_tk2_RK356X_i8.rknn ./model/RK_anchors_yolov5.txt
+
+
+MPP编译：
+1、下载
+git clone https://github.com/rockchip-linux/mpp.git
+mpp具体用法看doc下的Rockchip_Developer_Guide_MPP_CN.md
+
+MPP源代码编译脚本为cmake，需要依赖2.8.12以上的版本，建议使用3.x版。cmake-3.28版本验证通过。
+使用高版本的cmake工具可能会产生较多的warning。
+
+先配置build/linux/arm/目录下arm.linux.cross.cmake文件里的工具链，
+再运行make-Makefiles.bash脚本通过cmake生成Makefile，最后运行make –j16进行编译。
+
+2、工程编译
+在编译前需要修改CMakeLists.txt里mpp的路径
+修改成mpp编译后的路径
+
+修改后执行./build-linux_RK356X.sh
+
+上面的库配置好了，如果有修改自行修改CMakeLists.txt和交叉工具链
