@@ -1,28 +1,73 @@
-×¢Òâ£º
-1¡¢±àÒëĞèÒªmpp¿â£¬ĞèÒªÏÈ±àÒëmpp
-2¡¢ÔËĞĞÊ±ĞèÒªrtmp_sample_h264ÎÄ¼ş£¬ĞèÒª°ÑÎÄ¼ş¿½±´µ½Í¬¼¶Ä¿Â¼ÏÂ
+æ³¨æ„ï¼š
+1ã€ç¼–è¯‘éœ€è¦mppåº“ï¼Œéœ€è¦å…ˆç¼–è¯‘mpp
+2ã€è¿è¡Œæ—¶éœ€è¦rtmp_sample_h264æ–‡ä»¶ï¼Œéœ€è¦æŠŠæ–‡ä»¶æ‹·è´åˆ°åŒçº§ç›®å½•ä¸‹
 
 
-Ö´ĞĞÖ¸Áî£º
+æ‰§è¡ŒæŒ‡ä»¤ï¼š
 chmod +x rknn_yolo_demo
 ./rknn_yolo_demo yolov5 fp ./model/yolov5s_relu_tk2_RK356X_i8.rknn ./model/RK_anchors_yolov5.txt
 
 
-MPP±àÒë£º
-1¡¢ÏÂÔØ
+MPPç¼–è¯‘ï¼š
+1ã€ä¸‹è½½
 git clone https://github.com/rockchip-linux/mpp.git
-mpp¾ßÌåÓÃ·¨¿´docÏÂµÄRockchip_Developer_Guide_MPP_CN.md
+mppå…·ä½“ç”¨æ³•çœ‹docä¸‹çš„Rockchip_Developer_Guide_MPP_CN.md
 
-MPPÔ´´úÂë±àÒë½Å±¾Îªcmake£¬ĞèÒªÒÀÀµ2.8.12ÒÔÉÏµÄ°æ±¾£¬½¨ÒéÊ¹ÓÃ3.x°æ¡£cmake-3.28°æ±¾ÑéÖ¤Í¨¹ı¡£
-Ê¹ÓÃ¸ß°æ±¾µÄcmake¹¤¾ß¿ÉÄÜ»á²úÉú½Ï¶àµÄwarning¡£
+MPPæºä»£ç ç¼–è¯‘è„šæœ¬ä¸ºcmakeï¼Œéœ€è¦ä¾èµ–2.8.12ä»¥ä¸Šçš„ç‰ˆæœ¬ï¼Œå»ºè®®ä½¿ç”¨3.xç‰ˆã€‚cmake-3.28ç‰ˆæœ¬éªŒè¯é€šè¿‡ã€‚
+ä½¿ç”¨é«˜ç‰ˆæœ¬çš„cmakeå·¥å…·å¯èƒ½ä¼šäº§ç”Ÿè¾ƒå¤šçš„warningã€‚
 
-ÏÈÅäÖÃbuild/linux/arm/Ä¿Â¼ÏÂarm.linux.cross.cmakeÎÄ¼şÀïµÄ¹¤¾ßÁ´£¬
-ÔÙÔËĞĞmake-Makefiles.bash½Å±¾Í¨¹ıcmakeÉú³ÉMakefile£¬×îºóÔËĞĞmake ¨Cj16½øĞĞ±àÒë¡£
+å…ˆé…ç½®build/linux/arm/ç›®å½•ä¸‹arm.linux.cross.cmakeæ–‡ä»¶é‡Œçš„å·¥å…·é“¾ï¼Œ
+å†è¿è¡Œmake-Makefiles.bashè„šæœ¬é€šè¿‡cmakeç”ŸæˆMakefileï¼Œæœ€åè¿è¡Œmake â€“j16è¿›è¡Œç¼–è¯‘ã€‚
 
-2¡¢¹¤³Ì±àÒë
-ÔÚ±àÒëÇ°ĞèÒªĞŞ¸ÄCMakeLists.txtÀïmppµÄÂ·¾¶
-ĞŞ¸Ä³Émpp±àÒëºóµÄÂ·¾¶
+2ã€å·¥ç¨‹ç¼–è¯‘
+åœ¨ç¼–è¯‘å‰éœ€è¦ä¿®æ”¹CMakeLists.txté‡Œmppçš„è·¯å¾„
+ä¿®æ”¹æˆmppç¼–è¯‘åçš„è·¯å¾„
 
-ĞŞ¸ÄºóÖ´ĞĞ./build-linux_RK356X.sh
+ä¿®æ”¹åæ‰§è¡Œ./build-linux_RK356X.sh
 
-ÉÏÃæµÄ¿âÅäÖÃºÃÁË£¬Èç¹ûÓĞĞŞ¸Ä×ÔĞĞĞŞ¸ÄCMakeLists.txtºÍ½»²æ¹¤¾ßÁ´
+ä¸Šé¢çš„åº“é…ç½®å¥½äº†ï¼Œå¦‚æœæœ‰ä¿®æ”¹è‡ªè¡Œä¿®æ”¹CMakeLists.txtå’Œäº¤å‰å·¥å…·é“¾
+
+
+äº¤å‰ç¼–è¯‘faacï¼š
+
+export CC=/opt/atk-dlrk356x-toolchain/usr/bin/aarch64-buildroot-linux-gnu-gcc
+ 
+./configure --host=arm-linux --target=aarch64-buildroot-linux-gnu CC=/opt/atk-dlrk356x-toolchain/usr/bin/aarch64-buildroot-linux-gnu-gcc CXX=/opt/atk-dlrk356x-toolchain/usr/bin/aarch64-buildroot-linux-gnu-g++ --prefix=/home/alientek/tools/faac-1.28/arm_libfaac
+ 
+make -j2 
+make install
+
+
+1ã€mpeg4ip.h:126:58: error: ambiguating new declaration of 'char* strcasestr(const char*, const char*)'
+å¤„ç†ï¼š
+ä»123è¡Œå¼€å§‹ä¿®æ”¹æ­¤æ–‡ä»¶mpeg4ip.hï¼Œåˆ°129è¡Œç»“æŸã€‚
+ä¿®æ”¹å‰ï¼š
+
+#ifdef __cplusplus
+extern "C" {undefined
+#endif
+char *strcasestr(const char *haystack, const char *needle);
+#ifdef __cplusplus
+}
+#endif
+ä¿®æ”¹åï¼š
+
+#ifdef __cplusplus
+extern "C++" {undefined
+#endif
+const char *strcasestr(const char *haystack, const char *needle);
+#ifdef __cplusplus
+}
+#endif
+
+
+å‡ºé”™ï¼šatom_standard.cpp:32:51: error: narrowing conversion of â€˜169â€™ from â€˜intâ€™ to â€˜charâ€™ [-Wnarrowing]
+   32 | static const char gen[5]={0251,'g', 'e', 'n', '\0'};
+ å¤„ç†ï¼šæŠŠ0251è¯¥æˆå…¶å€¼ä¸ºç‰ˆæƒç¬¦å· '?'
+
+
+å‡ºé”™ï¼šrtphint.cpp:345:22: error: ISO C++ forbids comparison between pointer and integer [-fpermissive]
+  345 |        if (pSlash != '\0') {
+è§£å†³æ–¹æ³•ï¼šå°† '\0' æ”¹ä¸º "\0"ã€‚
+
+
